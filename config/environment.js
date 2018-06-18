@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
@@ -6,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'ucrm-client-signup-form',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'none',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,6 +20,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      rootElement: '#ember-signup',
+      // host: '/_plugins/ucrm-stripe-api-payments/public.php',
+      completionText: 'completiontextinformation',
+      pluginAppKey: null,
     }
   };
 
@@ -41,10 +44,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {
-
+    // here you can enable a production-specific feature
   }
 
   return ENV;

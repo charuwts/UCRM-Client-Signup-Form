@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
+
+@import "variables";
+@import "mixins";
+
+@import "ember-bootstrap/bootstrap";
+
+body { font-family: $latoFont; }
+
+.logo {
+  display: block;
+  margin: 20px auto;
+  max-width: 400px;
+  height: auto;
+}
+.application-wrapper {
+  @include wmd();
+}
+.form-description {
+  @include wmd();
+}
+.btn {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+}

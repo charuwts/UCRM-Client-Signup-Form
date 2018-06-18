@@ -1,0 +1,5 @@
+@mixin wmd($width: $siteWidth, $margin: 0 auto 0, $display: block) {
+  max-width: $width;
+  margin: $margin;
+  display: $display;
+}

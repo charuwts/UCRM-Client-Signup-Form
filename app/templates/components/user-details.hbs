@@ -1,0 +1,58 @@
+{{#bs-form model=model.client novalidate=true onSubmit=(action "submit" model.client) as |form|}}
+  <div class="form-row">
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="text" id="firstName" autocomplete="given-name" placeholder="First Name" property="firstName" required=true}}
+    </div>
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="text" id="lastName" autocomplete="family-name" placeholder="Last Name" property="lastName" required=true}}
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="email" id="email" autocomplete="email" placeholder="Email" property="email" required=true}}
+    </div>
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="phone" id="phone" autocomplete="tel tel-national" placeholder="Phone Number" property="phone" required=true}}
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="text" id="street1" autocomplete="street-address" placeholder="Street Address" property="street1" required=true}}
+    </div>
+    {{!-- <div class="col-md-6 mb-2"> --}}
+      {{!-- {{form.element controlType="text" id="street2" autocomplete="" placeholder="Street Address 2" property="street2" required=true}} --}}
+    {{!-- </div> --}}
+    <div class="col-md-3 mb-2">
+      {{form.element controlType="text" id="city" autocomplete="address-level2" placeholder="City" property="city" required=true}}
+    </div>
+    <div class="col-md-3 mb-2">
+      {{form.element controlType="text" id="zip" autocomplete="postal-code" placeholder="Zip" property="zipCode" required=true}}
+    </div>
+  </div>
+
+  {{!-- <div class="form-row"> --}}
+{{!--     <div class="col-md-3 mb-2">
+      {{#form.element controlType="power-select" id="country" property="country" options=model.countries optionLabelPath="name" as |power-sel|}}
+        {{power-sel.control searchField="name" autocomplete="" placeholder="Choose Country"}}
+      {{/form.element}}
+    </div>
+    <div class="col-md-3 mb-2">
+      {{#form.element controlType="power-select" id="state" property="state" options=states optionLabelPath="name" as |power-sel|}}
+        {{power-sel.control searchField="name" autocomplete="" placeholder="Choose State"}}
+      {{/form.element}}
+    </div>
+ --}}    
+  {{!-- </div> --}}
+  <div class="row">
+    <div class="col text-center">
+      {{#if processing}}
+        <div class="btn btn-dark disabled" id="proceed"><span>Processing</span></div>
+      {{else if (v-get model.client 'isInvalid')}}
+        <div class="btn btn-dark disabled" id="proceed"><span>Provide Info</span></div>
+      {{else}}
+        <button class="btn btn-secondary" id="proceed" type="submit"><span>Signup</span></button>
+      {{/if}}
+    </div>
+  </div>
+{{/bs-form}}
