@@ -12,6 +12,7 @@ export default Component.extend({
       client.validate().then(({ validations }) => {
         this.set('pending', true);
         this.set('processing', true);
+        this.set('failure', false);
 
         if (validations.get('isValid')) {
           
