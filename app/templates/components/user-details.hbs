@@ -44,6 +44,39 @@
     </div>
  --}}    
   {{!-- </div> --}}
+
+  {{#unless error}}
+    {{#if pending}}
+      <div class="alert alert-primary" role="alert">Submitting Information</div>
+      <div>
+        {{bw/tag-img absoluteSrc="https://s3.amazonaws.com/shared-charuwts/images/spinner.gif" class="img-inline"}}
+      </div>
+    {{else}}
+      {{#if failure}}
+        <div class="alert alert-danger" role="alert">Sorry, there was an error with your request.</div>
+        {{#if errors}}
+          {{#bs-form class="container-fluid" model=model.client novalidate=true as |form|}}
+            <div class="row">
+              {{#each-in errors as |key value|}}
+                <div class="col-6">
+                  {{#if (is-value key 'username')}}
+                    <span style="text-transform:capitalize;">email</span> - {{value}}
+                    {{form.element controlType="email" id="email" autocomplete="email" placeholder="Email" property="email" required=true}}
+                  {{else}}
+                    <span style="text-transform:capitalize;">{{key}}</span> - {{value}}
+                    {{form.element placeholder=key property=key required=true}}
+                  {{/if}}
+                </div>
+              {{/each-in}}
+            </div>
+          {{/bs-form}}
+        {{/if}}
+
+      {{/if}}
+    {{/if}}
+  {{/unless}}
+
+  
   <div class="row">
     <div class="col text-center">
       {{#if processing}}

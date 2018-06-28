@@ -22,7 +22,6 @@ const Validations = buildValidations({
   ],
   phone: [
     validator('presence', true),
-    validator('format', { type: 'phone' })
   ]
 });
 

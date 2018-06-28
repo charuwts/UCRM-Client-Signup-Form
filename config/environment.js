@@ -21,9 +21,9 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       rootElement: '#ember-signup',
-      // host: '/_plugins/ucrm-stripe-api-payments/public.php',
+      host: '/_plugins/ucrm-client-signup/public.php',
       completionText: 'completiontextinformation',
-      pluginAppKey: null,
+      pluginAppKey: 'null',
     }
   };
 
