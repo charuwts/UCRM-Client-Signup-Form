@@ -48,9 +48,11 @@
   {{#unless error}}
     {{#if pending}}
       <div class="alert alert-primary" role="alert">Submitting Information</div>
-      <div>
-        {{bw/tag-img absoluteSrc="https://s3.amazonaws.com/shared-charuwts/images/spinner.gif" class="img-inline"}}
-      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <img src="https://s3.amazonaws.com/shared-charuwts/images/spinner.gif" style="display:inline-block;">
+        </div>
+      </div><br clear="all">
     {{else}}
       {{#if failure}}
         <div class="alert alert-danger" role="alert">Sorry, there was an error with your request.</div>
@@ -76,7 +78,7 @@
     {{/if}}
   {{/unless}}
 
-  
+
   <div class="row">
     <div class="col text-center">
       {{#if processing}}
