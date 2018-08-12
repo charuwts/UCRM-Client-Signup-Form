@@ -14,16 +14,13 @@ export default Component.extend({
         data: {
           pluginAppKey: ENV.APP.pluginAppKey,
           country_id: this.get('model.client.countryId')
-        } 
-      });
-      
+        }
+      });      
     } else {
       this.set('model.client.stateId', null);
       return false;
     }
-
-  }), 
-
+  }),
 
   actions: {
     selectCountry(country) {

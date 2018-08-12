@@ -33,17 +33,9 @@ export default DS.Model.extend(Validations, {
   street2: attr('string'),
   zipCode: attr('string'),
   city: attr('string'),
-
   email: attr('string'),
   phone: attr('string'),
-
   stateId: attr('number', {defaultValue: null}),
   countryId: attr('number', {defaultValue: null}),
-
-  agreedToTAC: attr('boolean', {defaultValue: false}),
-
-  fullAddress: computed('street1', 'zipCode', 'city', function() {
-    return this.get('street1') + ', ' + this.get('city') + this.get('zipCode')
-  }),
-
+  // agreedToTAC: attr('boolean', {defaultValue: false}),
 });

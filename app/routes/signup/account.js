@@ -18,9 +18,8 @@ export default Route.extend({
       countries: this.get('ajax').post(ENV.APP.host, {
         data: {
           pluginAppKey: ENV.APP.pluginAppKey,
-          countries: true
-            
-        } 
+          countries: true   
+        }
       }),
       client: this.modelFor('signup').client
     })
