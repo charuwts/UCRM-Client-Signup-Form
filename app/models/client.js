@@ -30,28 +30,20 @@ export default DS.Model.extend(Validations, {
   lastName: attr('string'),
   contacts: attr(),
   street1: attr('string'),
-  // street2: attr('string'),
+  street2: attr('string'),
   zipCode: attr('string'),
   city: attr('string'),
 
   email: attr('string'),
   phone: attr('string'),
 
-  // state: belongsTo('state'),
-  stateId: attr('number', {defaultValue: 6}),
-  countryId: attr('number', {defaultValue: 249}),
+  stateId: attr('number', {defaultValue: null}),
+  countryId: attr('number', {defaultValue: null}),
 
   agreedToTAC: attr('boolean', {defaultValue: false}),
 
   fullAddress: computed('street1', 'zipCode', 'city', function() {
-    return this.get('street1') + ', ' + this.get('city') + ', CO. ' + this.get('zipCode')
+    return this.get('street1') + ', ' + this.get('city') + this.get('zipCode')
   }),
 
-  // stateId: computed('state', function() {
-  //   return this.get('state.id');
-  // }),
-  // country: belongsTo('country'),
-  // countryId: computed('country', function() {
-  //   return this.get('country.id');
-  // }),
 });

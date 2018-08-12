@@ -23,3 +23,7 @@ body { font-family: $latoFont; }
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
 }
+
+@import "ember-power-select/themes/bootstrap";
+
+@import "ember-power-select";

@@ -20,30 +20,31 @@
     <div class="col-md-6 mb-2">
       {{form.element controlType="text" id="street1" autocomplete="street-address" placeholder="Street Address" property="street1" required=true}}
     </div>
-    {{!-- <div class="col-md-6 mb-2"> --}}
-      {{!-- {{form.element controlType="text" id="street2" autocomplete="" placeholder="Street Address 2" property="street2" required=true}} --}}
-    {{!-- </div> --}}
-    <div class="col-md-3 mb-2">
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="text" id="street2" autocomplete="" placeholder="Street Address 2" property="street2" required=true}}
+    </div>
+    <div class="col-md-6 mb-2">
       {{form.element controlType="text" id="city" autocomplete="address-level2" placeholder="City" property="city" required=true}}
     </div>
-    <div class="col-md-3 mb-2">
-      {{form.element controlType="text" id="zip" autocomplete="postal-code" placeholder="Zip" property="zipCode" required=true}}
+    <div class="col-md-6 mb-2">
+      {{form.element controlType="text" id="zip" autocomplete="postal-code" placeholder="Postal Code" property="zipCode" required=true}}
     </div>
   </div>
-
-  {{!-- <div class="form-row"> --}}
-{{!--     <div class="col-md-3 mb-2">
-      {{#form.element controlType="power-select" id="country" property="country" options=model.countries optionLabelPath="name" as |power-sel|}}
-        {{power-sel.control searchField="name" autocomplete="" placeholder="Choose Country"}}
-      {{/form.element}}
+    
+  <div class="form-row">
+    <div class="col-md-6 mb-4">
+      {{#power-select searchField="name" placeholder="Choose Country" selected=selectedCountry options=model.countries onchange=(action "selectCountry") as |country|}}
+        {{country.name}}
+      {{/power-select}}
     </div>
-    <div class="col-md-3 mb-2">
-      {{#form.element controlType="power-select" id="state" property="state" options=states optionLabelPath="name" as |power-sel|}}
-        {{power-sel.control searchField="name" autocomplete="" placeholder="Choose State"}}
-      {{/form.element}}
+    <div class="col-md-6 mb-4">
+      {{#if states}}
+        {{#power-select searchField="name" placeholder="Choose State" selected=selectedState options=states onchange=(action "selectState") as |state|}}
+          {{state.name}}
+        {{/power-select}}
+      {{/if}}
     </div>
- --}}    
-  {{!-- </div> --}}
+  </div>
 
   {{#unless error}}
     {{#if pending}}

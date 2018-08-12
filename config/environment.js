@@ -21,9 +21,10 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       rootElement: '#ember-signup',
-      host: 'http://localhost:8080/_plugins/ucrm-client-signup/public.php',
+      // host: 'http://localhost:8080/_plugins/ucrm-client-signup/public.php',
+      host: 'http://ucrm-client-signup/public.php',
       completionText: 'completiontextinformation',
-      pluginAppKey: 'null',
+      pluginAppKey: 'development_key',
     }
   };
 

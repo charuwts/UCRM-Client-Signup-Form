@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import ENV from "../config/environment";
 
 export default Component.extend({
@@ -7,7 +8,35 @@ export default Component.extend({
   store: service(),
   classNames: ['container-fluid'],
   processing: false,
+  states: computed('model.client.countryId', function() {
+    if ((this.get('model.client.countryId') == 249) || (this.get('model.client.countryId') == 54)) {
+      return this.get('ajax').post(ENV.APP.host, {
+        data: {
+          pluginAppKey: ENV.APP.pluginAppKey,
+          country_id: this.get('model.client.countryId')
+        } 
+      });
+      
+    } else {
+      this.set('model.client.stateId', null);
+      return false;
+    }
+
+  }), 
+
+
   actions: {
+    selectCountry(country) {
+      this.set('model.client.countryId', country.id);
+      this.set('selectedCountry', country);
+
+      this.set('model.client.stateId', null);
+      this.set('selectedState', null);
+    },
+    selectState(state) {
+      this.set('model.client.stateId', state.id);
+      this.set('selectedState', state);
+    },
     submit(client) {
       client.validate().then(({ validations }) => {
         this.set('pending', true);
@@ -49,19 +78,6 @@ export default Component.extend({
                 // ]
 
               },
-              // service: {
-              //   "activeFrom": serviceInvoiceStart.format(),
-              //   "invoicingStart": serviceInvoiceStart.format(),
-              //   "invoicingPeriodStartDay": serviceInvoiceStart.date(),
-              //   "sendEmailsAutomatically": false,
-              //   "useCreditAutomatically": true,
-              //   "servicePlanId": this.get('model.newService.servicePlanComputedId'),
-              //   "servicePlanPeriodId": this.get('model.newService.servicePlanPeriodComputedId'),
-              //   "discountType": this.get('model.newService.discountType'),
-              //   "discountValue": this.get('model.newService.discountValue'),
-              //   "discountFrom": this.get('model.newService.discountFrom'),
-              //   "discountTo": this.get('model.newService.discountTo')
-              // },
             } 
           }).catch((resp) => {
             if ((resp.payload !== undefined) && (resp.payload !== null)) {
