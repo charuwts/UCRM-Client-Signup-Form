@@ -49,7 +49,6 @@ export default Component.extend({
             data: {
               pluginAppKey: ENV.APP.pluginAppKey,
               client: {
-                "organizationId": 1,
                 "clientType": 1,
                 "firstName": this.get('model.client.firstName'),
                 "lastName": this.get('model.client.lastName'),
