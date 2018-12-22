@@ -17,8 +17,12 @@ export default Route.extend({
     return hash({
       countries: this.get('ajax').post(ENV.APP.host, {
         data: {
-          pluginAppKey: ENV.APP.pluginAppKey,
-          countries: true   
+          frontendKey: ENV.APP.frontendKey,
+          api: {
+            type: 'GET',
+            endpoint: 'countries',
+            data: {}
+          }
         }
       }),
       client: this.modelFor('signup').client

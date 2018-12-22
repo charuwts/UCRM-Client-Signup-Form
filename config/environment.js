@@ -18,7 +18,8 @@ module.exports = function(environment) {
       rootElement: '#ember-signup',
       host: 'http://localhost:8080/_plugins/ucrm-client-signup/public.php',
       completionText: 'completiontextinformation',
-      pluginAppKey: 'development_key',
+      frontendKey: 'development_key',
+      isLead: 'yes',
     }
   };
 
